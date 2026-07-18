@@ -1,0 +1,591 @@
+/* jPLAYER */
+.jp-controls button{
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+}
+.jp-audio-stream :focus,
+.jp-video :focus {
+ outline:0
+}
+.jp-audio button::-moz-focus-inner,
+.jp-audio-stream button::-moz-focus-inner,
+.jp-video button::-moz-focus-inner {
+ border:0
+}
+.jp-audio,
+.jp-audio-stream,
+.jp-video {
+ font-size:16px;
+ font-family:Verdana,Arial,sans-serif;
+ line-height:1.6;
+ color:#666;
+ background: #2f3038;
+}
+.jp-audio {
+ width:100%;
+}
+.jp-audio-stream {
+ width:182px
+}
+.jp-video-270p {
+ width:480px
+}
+.jp-video-360p {
+ width:640px
+}
+.jp-video-full {
+ width:480px;
+ height:270px;
+ position:static!important;
+ position:relative
+}
+.jp-video-full div div {
+ z-index:1000
+}
+.jp-video-full .jp-jplayer {
+ top:0;
+ left:0;
+ position:fixed!important;
+ position:relative;
+ overflow:hidden
+}
+.jp-video-full .jp-gui {
+ position:fixed!important;
+ position:static;
+ top:0;
+ left:0;
+ width:100%;
+ height:100%;
+ z-index:1001
+}
+.jp-video-full .jp-interface {
+ position:absolute!important;
+ position:relative;
+ bottom:0;
+ left:0
+}
+.jp-interface {
+ position:relative;
+ background-color:#2f3038;
+ width:100%
+}
+.jp-audio .jp-interface,
+.jp-audio-stream .jp-interface {
+ display: block;
+ float: left;
+ width: 100%;
+}
+.jp-video .jp-interface {
+ border-top:1px solid #009be3
+}
+.jp-controls-holder {
+ clear:both;
+ width:440px;
+ margin:0 auto;
+ position:relative;
+ overflow:hidden;
+ top:-8px
+}
+.jp-interface .jp-controls {
+ margin:0;
+ padding:0;
+ overflow:hidden
+}
+.jp-audio .jp-controls {
+ margin: 15px 20px;
+ display: inline-block;
+ float: left;
+}
+.jp-audio-stream .jp-controls {
+ position:absolute;
+ top:20px;
+ left:20px;
+ width:142px
+}
+.jp-video .jp-type-single .jp-controls {
+ width:78px;
+ margin-left:200px
+}
+.jp-video .jp-type-playlist .jp-controls {
+ width:134px;
+ margin-left:172px
+}
+.jp-video .jp-controls {
+ float:left
+}
+.jp-controls button {
+ display: inline-block;
+ float:left;
+ overflow:hidden;
+ border:none;
+ cursor:pointer;
+}
+.jp-play:before,.jp-state-playing .jp-play:before {
+  position: absolute;
+  color: #fff;
+  font-weight: 900;
+  z-index: 5;
+  display: flex;
+  transform: translate(50%,-50%);
+}
+.fa-forward:before,.fa-backward:before{
+  position: absolute;
+  color: #fff;
+  font-weight: 900;
+  z-index: 5;
+  display: flex;
+  transform: translate(40%,-50%);
+}
+.jp-play:before {
+	content: '\f04b';
+}
+.jp-state-playing .jp-play:before {
+	content: '\f04c' !important;
+}
+.fa-forward:before{
+	content: '\f04e';
+}
+.fa-backward:before{
+	content: '\f04a';
+  }
+.jp-state-playing .jp-play {
+ background:var(--main-color);
+ color:#fff;
+ border-color: var(--main-color);
+}
+.jp-next,
+.jp-previous,
+.jp-stop {
+}
+.jp-stop {
+}
+
+.jp-previous {
+ background:;
+}
+.jp-progress {
+ background-color:#ddd;
+}
+.jp-audio .jp-progress {
+ height:10px;
+ border-radius: 3px;
+}
+.jp-audio .jp-type-single .jp-progress {
+ left:110px;
+ width:186px
+}
+.jp-audio .jp-type-playlist .jp-progress {
+ width: 160px;
+ margin-top: 28px;
+ display: inline-block;
+ margin-left: 5px;
+}
+.jp-video .jp-progress {
+ top:0;
+ left:0;
+ width:100%;
+ height:10px
+}
+.jp-seek-bar {
+ width:0;
+ height:100%;
+ cursor:pointer
+}
+.jp-play-bar {
+ background:var(--main-color);
+ width:0;
+ height:100%;
+ border-radius: 0 3px 3px 0;
+}
+.jp-seeking-bg {background:url(https://lh6.googleusercontent.com/-y8vIsuSoEuI/YIlcyRhiBdI/AAAAAAAAAUY/q4usaVYhS3ca-9giVf6GNfl_A6DIUnTGgCLcBGAsYHQ/s0/jplayer.blue.monday.seeking.gif);
+border-radius: 0 3px 3px 0;
+}
+.jp-state-no-volume .jp-volume-controls {
+ display:none
+}
+.jp-volume-controls {
+ position:absolute;
+ top:16px;
+ left:280px;
+ width:200px;
+}
+.jp-audio-stream .jp-volume-controls {
+ left:70px
+}
+.jp-video .jp-volume-controls {
+ top:12px;
+ left:50px
+}
+.jp-volume-controls button {
+ display:block;
+ position:absolute;
+ overflow:hidden;
+ border:none;
+ cursor:pointer;
+ background: #2f3038;
+}
+.jp-mute,
+.jp-volume-max {
+ width:28;
+ height:28;
+}
+.jp-volume-max {
+ left:70px;
+}
+
+.jp-volume-bar {
+ position:absolute;
+ overflow:hidden;
+ background:rgba(183, 197, 205, 0.66);
+ top:11px;
+ left:22px;
+ width:46px;
+ height:5px;
+ cursor:pointer
+}
+.jp-volume-bar-value {
+ width:0;
+ height:5px;
+ background: var(--main-color);
+}
+.jp-audio .jp-time-holder {
+}
+.jp-audio .jp-type-single .jp-time-holder {
+ left:110px;
+ width:186px
+}
+.jp-audio .jp-type-playlist .jp-time-holder {
+ display: inline-block;
+}
+.jp-current-time,
+.jp-duration {
+ width:60px;
+ font-size:.80em;
+ font-style:oblique
+}
+.jp-current-time {
+    display: inline;
+    cursor: default;
+    margin: 0 20px;
+}
+.jp-duration {
+ display:inline;
+ text-align:right;
+}
+.jp-video .jp-current-time {
+ margin-left:20px
+}
+.jp-video .jp-duration {
+ margin-right:20px
+}
+.jp-details {
+ font-weight:700;
+ text-align:center;
+ cursor:default
+}
+.jp-details,
+.jp-playlist {
+ width:100%;
+ background-color:#2f3038;
+ border-top:;
+ max-height: 250px;
+ overflow-y: scroll;
+}
+.jp-type-playlist .jp-details,
+.jp-type-single .jp-details {
+ border-top:none
+}
+.jp-details .jp-title {
+ margin:0;
+ padding:5px 20px;
+ font-size:.72em;
+ font-weight:700
+}
+.jp-playlist ul {
+ list-style-type:none;
+ margin:0;
+ padding:0;
+ font-size:14px;
+}
+.jp-playlist li {
+ padding:;
+}
+.jp-playlist li div {
+ display:inline
+}
+div.jp-type-playlist div.jp-playlist li:last-child {
+ border-bottom:none
+}
+div.jp-type-playlist div.jp-playlist li.jp-playlist-current {
+ list-style-type:;
+ list-style-position:;
+ padding-left:;
+ background: var(--main-color) !important;
+ color: ;
+}
+div.jp-type-playlist div.jp-playlist a {
+ color:#ddd;
+ text-decoration:none;
+ display: block;
+ padding: 10px 15px;
+ white-space: nowrap;
+ overflow: hidden;
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-current,
+div.jp-type-playlist div.jp-playlist a:hover {
+ color:#fff;
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove {
+ float:right;
+ display:inline;
+ text-align:right;
+ margin-right:10px;
+ font-weight:700;
+ color:#666
+}
+div.jp-type-playlist div.jp-playlist a.jp-playlist-item-remove:hover {
+ color:var(--main-color);
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media {
+ float:right;
+ display:inline;
+ text-align:right;
+ margin-right:10px
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media a {
+ color:#666
+}
+div.jp-type-playlist div.jp-playlist span.jp-free-media a:hover {
+ color:var(--main-color);
+}
+span.jp-artist {
+ font-size:.8em;
+ color:#666
+}
+.jp-video-play {
+ width:100%;
+ overflow:hidden;
+ cursor:pointer;
+ background-color:transparent
+}
+.jp-video-270p .jp-video-play {
+ margin-top:-270px;
+ height:270px
+}
+.jp-video-360p .jp-video-play {
+ margin-top:-360px;
+ height:360px
+}
+.jp-video-full .jp-video-play {
+ height:100%
+}
+.jp-video-play-icon {
+ position:relative;
+ display:block;
+ width:112px;
+ height:100px;
+ margin-left:-56px;
+ margin-top:-50px;
+ left:50%;
+ top:50%;
+ border:none;
+ cursor:pointer
+}
+.jp-jplayer,
+.jp-jplayer audio {
+ width:0;
+ height:0
+}
+.jp-jplayer {
+ background-color:#000
+}
+.jp-toggles {
+ padding:0;
+ margin:0 auto;
+ overflow:hidden
+}
+.jp-audio .jp-type-single .jp-toggles {
+ width:25px
+}
+.jp-audio .jp-type-playlist .jp-toggles {
+ width:55px;
+ margin:0;
+ position:absolute;
+ left:325px;
+ top:50px
+}
+.jp-video .jp-toggles {
+ position:absolute;
+ right:16px;
+ margin:10px 0 0;
+ width:100px
+}
+.jp-toggles button {
+ display:block;
+ float:left;
+ width:25px;
+ height:18px;
+ text-indent:-9999px;
+ line-height:100%;
+ border:none;
+ cursor:pointer
+}
+.jp-no-solution {
+ padding:5px;
+ font-size:.8em;
+ background-color:#eee;
+ border:2px solid #009be3;
+ color:#000;
+ display:none
+}
+.jp-no-solution a {
+ color:#000
+}
+.jp-no-solution span {
+ font-size:1em;
+ display:block;
+ text-align:center;
+ font-weight:700
+}
+.jp-playlist li:nth-child(2n+1) {
+    background: #26262d;
+}
+.jp-controls button {
+    background: #2f3038;
+}
+.jp-controls button:hover {
+  background: var(--main-color);
+  color: #fff;
+}
+.jp-controls button {
+  width: 35px;
+  height: 35px;
+  border-radius: 3px;
+  margin-right: 10px;
+  border: 1px solid #444;
+}
+
+.jp-playlist-item:focus{
+	outline:none!important;
+}
+.jp-playlist::-webkit-scrollbar {
+    width: 10px;    
+}
+.jp-playlist::-webkit-scrollbar-track {
+   -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+   background-color: #2f3038;
+}
+.jp-playlist::-webkit-scrollbar-thumb {
+   background-color: #686971;
+ }
+.jp-playlist::-webkit-scrollbar-thumb:hover {
+   background-color: #5e5f66;
+ }
+.dangnghe {
+    display: inline;
+    margin-right: 5px;
+}
+
+alert.alert-success.showlisten {
+    margin: 5px 0;
+    padding: 5px 10px;
+    float: left;
+    width: 100%;
+}
+.alert-success {
+    border-radius:var(--radius);
+	background-color: var(--rgba-gray);
+}
+.alert {
+	margin: 5px 0 0;
+    padding: 10px 12px;
+    border: 1px solid transparent;
+ 	clear:both;
+	border: 1px solid var(--border-color);
+}
+
+.showlisten button.close {
+    margin: 0;
+}
+* {
+    outline: none!important;
+}
+.righttime {
+    float: right;
+    margin-bottom: 2px;
+}
+.settime {
+    display: block;
+    float: left;
+    width: 100%;
+}
+#zingaudio_container {
+    float: left;
+    display: block;
+	margin-bottom:5px;
+}
+span.timex {
+    display: block;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+span.timex:hover {
+    background: #ddd;
+}
+.showtime {
+    display: inline-block;
+}
+.hengio .dropdown-menu{
+right:0!important; 
+left: unset!important;
+top:33px!important;
+}
+.rightunset {
+    right:unset !important;
+	left: unset!important;
+	top:33px!important;
+}
+.jp-playlist-item-download {
+    float: right;
+    display: inline!important;
+    text-align: right;
+    margin-right: 10px;
+    font-weight: 700;
+    color: #666;
+}
+button.close {
+    padding: 0;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    -webkit-appearance: none;
+}
+button.close {float: right;font-size: 21px;font-weight: 700;line-height: 1;color: var(--post-text-color);opacity: .2;filter: alpha(opacity = 20)}
+.close: hover, .close: focus {color: #000;text-decoration:none;cursor:pointer;opacity:.5;filter:alpha(opacity= 50)}
+.fa-download{display:none}	
+.btn-default{background-color: var(--rgba-gray);border: 1px solid var(--border-color);padding: 6px 8px;}
+.btn-default:hover{color:#fff;background-color:var(--main-color);}
+/* DISABLE SELECT */
+.post-body,.post-body img{-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}
+ /* PRE - CODE */
+.post-body pre,code,pre.code-box{background-color: var(--rgba-gray);border: 1px solid var(--border-color);font-family:Monospace;border-radius:var(--radius)}
+pre{overflow:auto;word-wrap:normal;position:relative;height:100%;max-height:350px;white-space: pre-wrap;line-height:1.4em;padding:12px;margin:10px 0;}
+pre>code{white-space:pre;word-wrap:initial;display:block}
+pre>code td{border:0}
+code{display: inline-block; position: relative;margin: 3px;padding: 2px 5px;}
+table td{-webkit-user-select:all;-moz-user-select:all;-ms-user-select:all;user-select:all}
+pre:hover::-webkit-scrollbar{width:5px}
+pre::-webkit-scrollbar{width:0}
+pre::-webkit-scrollbar-thumb{background:#ddd;border-radius:10px}
+pre::-webkit-scrollbar-thumb:active{background:#bbb}
+pre,code,blockquote{-webkit-user-select:all;-moz-user-select:all;-ms-user-select:all;user-select:all}
+blockquote{position:relative;background-color: var(--rgba-gray);border: 1px solid var(--border-color);font-style:normal;padding:16px 20px;margin:5px 0;border-radius:var(--radius)}
+blockquote:before{position:absolute;left:10px;top:10px;content:'\f10e';font-family:'Font Awesome 5 Free';font-size:33px;font-style:normal;font-weight:900;color:var(--title-color);line-height:1;opacity:.05;margin:0}
+.btn-sm{font-size:16px;line-height:1.6em;color: var(--post-text-color);margin:5px 0}
+.btn-sm:hover{cursor:pointer}
